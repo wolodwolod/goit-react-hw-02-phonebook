@@ -25,13 +25,7 @@ class App extends Component {
       return alert(`${name} is already in contacts.`);
     }
 
-    // const findNumber = this.state.contacts.find(
-    //   contact => contact.number === number
-    // );
-    // if (findNumber) {
-    //   return alert(`This phone number is already in use.`);
-    // }
-
+    
     this.setState(({ contacts }) => ({
       contacts: [{ name, id: nanoid() }, ...contacts],
     }));

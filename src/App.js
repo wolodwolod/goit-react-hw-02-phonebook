@@ -52,6 +52,18 @@ const findNumber = this.state.contacts.find(
     handleFilter = e => {
     const { name, value } = e.currentTarget;
     this.setState({ [name]: value });
+    };
+    
+//     deleteContact = ({ id }) => {
+//         this.setState(({ contacts }) => ({
+//       contacts: contacts.filter(contact => contact.id !== id),
+//     }));
+//   };
+   
+    deleteContact =  id  => {
+        this.setState(({ contacts }) => ({
+      contacts: contacts.filter(contact => contact.id !== id),
+    }));
   };
     
     render() {
@@ -66,7 +78,8 @@ const findNumber = this.state.contacts.find(
                 <Section className='ContactsSection' title='Contacts'>
                     <Filter value={this.state.filter} onChange={this.handleFilter} />
                     <ContactList
-                    contacts={this.filteredContacts()}
+                        contacts={this.filteredContacts()}
+                      onDelete={this.deleteContact}  
                     />                   
                 </Section>
                 

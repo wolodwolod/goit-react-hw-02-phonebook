@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import ContactItem from 'components/ContactItem';
 import s from './ContactList.module.css';
 
-const ContactList = ({ contacts }) => {
+const ContactList = ({ contacts,onDelete }) => {
   return (
     <ul className={s.ContactList}>
       {contacts.map(({ id, name, number }) => (
@@ -11,6 +11,7 @@ const ContactList = ({ contacts }) => {
           id={id}
               name={name}
               number={number}
+              onDelete={onDelete}
                 
         />
       ))}

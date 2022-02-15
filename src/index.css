@@ -4,9 +4,9 @@ html {
   box-sizing: border-box;
 }
 
-/* li {
-  list-style: none;
-} */
+p {
+  margin: 5px;
+}
 
 body {
   margin: 50px;

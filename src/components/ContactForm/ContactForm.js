@@ -54,7 +54,7 @@ class PhoneBook extends Component {
 />
             </label>
         
-        <button className={s.Form__button} type="submit">Add contact</button>
+        <button className={s.Form__btn} type="submit">Add contact</button>
       </form>
     );
   }

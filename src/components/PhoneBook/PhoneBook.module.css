@@ -1,0 +1,25 @@
+.Form {
+  max-width: 400px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 500;
+  /* background-color: #68829e; */
+}
+
+.Form__label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.Form__input {
+  width: 200px;
+  margin-top: 2px;
+}
+
+.Form__button {
+  cursor: pointer;
+  font-weight: 700;
+  padding: 5px 10px;
+}

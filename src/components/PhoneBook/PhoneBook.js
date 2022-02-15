@@ -4,7 +4,8 @@ import s from './PhoneBook.module.css';
 
 class PhoneBook extends Component {
   state = {
-    name: ''
+      name: '',
+      number: '',
       };
 
   handleChange = e => {
@@ -15,7 +16,7 @@ class PhoneBook extends Component {
     handleSubmit = e => {
         e.preventDefault();
         this.props.onSubmit(this.state);
-        this.setState({ name: '' });
+        this.setState({ name: '', number: '' });
     }
 
   static propTypes = {
@@ -25,14 +26,11 @@ class PhoneBook extends Component {
   render() {
     
     return (
-        <form className={s.PhoneBookForm}
-            onSubmit={this.handleSubmit}
-        >
-            <label
-                
-            >
+        <form className={s.Form}
+            onSubmit={this.handleSubmit}>
+            <label className={s.Form__label}>
           Name
-          <input
+          <input className={s.Form__input}
             type="text"
             name="name"
             value={this.state.name}
@@ -41,10 +39,22 @@ class PhoneBook extends Component {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
           />
-        </label>
-
+            </label>
+            
+            <label className={s.Form__label}>
+            Number
+            <input className={s.Form__input}
+            type="tel"
+            name="number"
+            value={this.state.number}
+            onChange={this.handleChange}              
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+/>
+            </label>
         
-        <button type="submit">Add contact</button>
+        <button className={s.Form__button} type="submit">Add contact</button>
       </form>
     );
   }

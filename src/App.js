@@ -8,42 +8,49 @@ import ContactList from 'components/ContactList'
 class App extends Component {
 
     state = {
-        contacts: [{ id: nanoid(), name: 'Rosie Simpson'},
-      { id: nanoid(), name: 'Hermione Kline' },
-      { id: nanoid(), name: 'Eden Clements' },
-      { id: nanoid(), name: 'Annie Copeland' },],
-        name: ''
+        contacts: [
+      { name: 'Rosie Simpson', number: '459-12-56' ,id: nanoid() },
+      { name: 'Hermione Kline', number: '433-89-12' ,id: nanoid() },
+      { name: 'Eden Clements', number: '645-17-79' ,id: nanoid() },
+      { name: 'Annie Copeland', number: '227-91-26' ,id: nanoid() },
+        ],
+        name: '',
+        number: '',
     }
 
- addContact = ({ name }) => {
-    const normalizedFind = name.toLowerCase();
+ addContact = ({ name, number }) => {
+    const normalizedInputName = name.toLowerCase();
     const findName = this.state.contacts.find(
       
-        contact => contact.name.toLowerCase() === normalizedFind
+        contact => contact.name.toLowerCase() === normalizedInputName
     );
     if (findName) {
       return alert(`${name} is already in contacts.`);
     }
-
+const findNumber = this.state.contacts.find(
+      contact => contact.number === number
+    );
+    if (findNumber) {
+      return alert(`This phone number is already in contacts.`);
+    }
     
     this.setState(({ contacts }) => ({
-      contacts: [{ name, id: nanoid() }, ...contacts],
+      contacts: [{ name, number, id: nanoid() }, ...contacts],
     }));
   };
 
 
     render() {
-        const contacts = this.state.contacts;
-
+        console.log(this.state);
         return (
             <>
                 <Section className='PhonebookSection' title='Phonebook'>
                     <PhoneBook onSubmit={this.addContact} 
                     />                   
                 </Section>
-                <Section className='ContactsSection' title='Phonebook'>
+                <Section className='ContactsSection' title='Contacts'>
                     <ContactList
-                    contacts={contacts}
+                    contacts={this.state.contacts}
                     />                   
                 </Section>
                 

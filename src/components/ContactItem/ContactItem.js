@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import s from './ContactItem.module.css';
 
-const ContactItem = ({ id, name}) => {
+const ContactItem = ({ id, name, number}) => {
   return (
     <li className={s.ContactItem} key={id}>
       <p>
-              {name}
+              {name}: {number}
               
       </p>
       

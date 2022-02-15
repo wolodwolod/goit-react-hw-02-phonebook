@@ -5,11 +5,12 @@ import s from './ContactList.module.css';
 const ContactList = ({ contacts }) => {
   return (
     <ul className={s.ContactList}>
-      {contacts.map(({ id, name }) => (
+      {contacts.map(({ id, name, number }) => (
         <ContactItem
           key={id}
           id={id}
-          name={name}
+              name={name}
+              number={number}
                 
         />
       ))}

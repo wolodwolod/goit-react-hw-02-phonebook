@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid'
 import Section from 'components/Section'
 import PhoneBook from 'components/PhoneBook'
 import ContactList from 'components/ContactList'
+import Filter from 'components/Filter'
 
 class App extends Component {
 
@@ -16,6 +17,7 @@ class App extends Component {
         ],
         name: '',
         number: '',
+        filter: '',
     }
 
  addContact = ({ name, number }) => {
@@ -39,9 +41,23 @@ const findNumber = this.state.contacts.find(
     }));
   };
 
-
+    filteredContacts = () => {
+    const { filter, contacts } = this.state;
+    const normalizedFilter = filter.toLowerCase();
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  };
+    
+    
+    handleFilter = e => {
+    const { name, value } = e.currentTarget;
+    this.setState({ [name]: value });
+  };
+    
     render() {
         console.log(this.state);
+        
         return (
             <>
                 <Section className='PhonebookSection' title='Phonebook'>
@@ -49,8 +65,9 @@ const findNumber = this.state.contacts.find(
                     />                   
                 </Section>
                 <Section className='ContactsSection' title='Contacts'>
+                    <Filter value={this.state.filter} onChange={this.handleFilter} />
                     <ContactList
-                    contacts={this.state.contacts}
+                    contacts={this.filteredContacts()}
                     />                   
                 </Section>
                 

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import s from './PhoneBook.module.css';
+import s from './ContactForm.module.css';
 
 class PhoneBook extends Component {
   state = {

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid'
 import Section from 'components/Section'
-import PhoneBook from 'components/PhoneBook'
+import ContactForm from 'components/ContactForm'
 import ContactList from 'components/ContactList'
 import Filter from 'components/Filter'
 
@@ -15,8 +15,7 @@ class App extends Component {
       { name: 'Eden Clements', number: '645-17-79' ,id: nanoid() },
       { name: 'Annie Copeland', number: '227-91-26' ,id: nanoid() },
         ],
-        name: '',
-        number: '',
+        
         filter: '',
     }
 
@@ -61,7 +60,7 @@ const findNumber = this.state.contacts.find(
         return (
             <>
                 <Section className='PhonebookSection' title='Phonebook'>
-                    <PhoneBook onSubmit={this.addContact} 
+                    <ContactForm onSubmit={this.addContact} 
                     />                   
                 </Section>
                 <Section className='ContactsSection' title='Contacts'>

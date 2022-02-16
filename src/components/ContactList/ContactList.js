@@ -1,8 +1,16 @@
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid'
 import ContactItem from 'components/ContactItem';
 
 
-const ContactList = ({ contacts,onDelete }) => {
+const ContactList = ({ contacts, onDelete }) => {
+  
+contacts.defaultProps = {
+      id: nanoid(),
+      name: "Name is unknown",
+      number: "Tel. number is unknown"
+};  
+
   return (
     <ul>
       {contacts.map(({ id, name, number }) => (

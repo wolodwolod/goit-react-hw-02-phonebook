@@ -3,7 +3,7 @@ import s from './ContactItem.module.css';
 
 const ContactItem = ({ id, name, number, onDelete}) => {
   return (
-    <li className={s.ContactItem} key={id}>
+    <li className={s.ContactItem}>
       <p>
               {name}: {number}            
       </p>
@@ -17,7 +17,7 @@ const ContactItem = ({ id, name, number, onDelete}) => {
 };
 
 ContactItem.propTypes = {
-  id: PropTypes.string.isRequired,
+  
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
   onDelete: PropTypes.func.isRequired,

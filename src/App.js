@@ -40,12 +40,12 @@ const findNumber = this.state.contacts.find(
     }));
   };
 
-    filteredContacts = () => {
+    filterContacts = () => {
     const { filter, contacts } = this.state;
     const normalizedFilter = filter.toLowerCase();
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
-    );
+    return filter !== "" ? contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)) : contacts
+    ;
   };
     
     
@@ -54,11 +54,7 @@ const findNumber = this.state.contacts.find(
     this.setState({ [name]: value });
     };
     
-//     deleteContact = ({ id }) => {
-//         this.setState(({ contacts }) => ({
-//       contacts: contacts.filter(contact => contact.id !== id),
-//     }));
-//   };
+
    
     deleteContact =  id  => {
         this.setState(({ contacts }) => ({
@@ -68,7 +64,8 @@ const findNumber = this.state.contacts.find(
     
     render() {
         console.log(this.state);
-        
+      // const { filter, contacts } = this.state; 
+      // const filteredContacts = this.filterContacts(); 
         return (
             <>
                 <Section className='PhonebookSection' title='Phonebook'>
@@ -77,8 +74,9 @@ const findNumber = this.state.contacts.find(
                 </Section>
                 <Section className='ContactsSection' title='Contacts'>
                     <Filter value={this.state.filter} onChange={this.handleFilter} />
-                    <ContactList
-                        contacts={this.filteredContacts()}
+              {}      
+              <ContactList
+                        contacts={this.filterContacts ()}
                       onDelete={this.deleteContact}  
                     />                   
                 </Section>

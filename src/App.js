@@ -43,7 +43,8 @@ const findNumber = this.state.contacts.find(
     filterContacts = () => {
     const { filter, contacts } = this.state;
     const normalizedFilter = filter.toLowerCase();
-    return filter !== "" ? contacts.filter(contact =>
+    
+      return filter !== "" ? contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)) : contacts
     ;
   };
@@ -77,7 +78,7 @@ const findNumber = this.state.contacts.find(
               {}      
               <ContactList
                         contacts={this.filterContacts ()}
-                      onDelete={this.deleteContact}  
+                      DeleteContact={this.deleteContact}  
                     />                   
                 </Section>
                 

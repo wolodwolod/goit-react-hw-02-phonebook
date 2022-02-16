@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid'
 import ContactItem from 'components/ContactItem';
 
 
-const ContactList = ({ contacts, onDelete }) => {
+const ContactList = ({ contacts, DeleteContact }) => {
   
 contacts.defaultProps = {
       id: nanoid(),
@@ -19,7 +19,7 @@ contacts.defaultProps = {
           id={id}
               name={name}
               number={number}
-              onDelete={onDelete}
+              onDelete={() => DeleteContact (id)}
                 
         />
       ))}
@@ -35,7 +35,7 @@ ContactList.propTypes = {
       number: PropTypes.string.isRequired,
           })
     ),
-    onDelete: PropTypes.func.isRequired,
+    DeleteContact: PropTypes.func.isRequired,
   };
 
 export default ContactList;
